@@ -44,5 +44,15 @@ npm run build --report
         }, false);
       }
       ```
-
+## 第二天
+1. **配置一级路由**
+   * Home
+   * Recommend
+   * Search
+   * Chat
+   * Me
+2. **构建Tabbar实现一级路由切换**
+3. **实现首页顶部滚动栏二级路由**
+   * 借助第三方库实现——Ly-Tab
+4. **配置二级路由**
 ## 后续持续更新
