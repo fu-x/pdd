@@ -9,7 +9,7 @@ import chat from '../pages/Chat/Chat.vue';
 import me from '../pages/Me/Me.vue';
 
 // 二级路由
-import hot from '../pages/Home/Children/hot.vue'
+import hot from '../pages/Home/Children/Hot/hot.vue'
 import man from '../pages/Home/Children/man.vue'
 import box from '../pages/Home/Children/box.vue'
 import dress from '../pages/Home/Children/dress.vue'

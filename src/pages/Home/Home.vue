@@ -5,6 +5,7 @@
       :items="items"
       :options="options"
       @change="handleChange"
+      class="fix"
     />
     <router-view></router-view>
   </div>
@@ -43,7 +44,12 @@ export default {
 
 <style scoped lang="stylus" ref="stylesheet/stylus">
 .home
-  background-color blue
   width 100%
   height 100%
+  .fix
+    position fixed
+    top 0
+    left 0
+    z-index 900
+    width 100%
 </style>
