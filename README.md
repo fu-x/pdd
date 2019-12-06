@@ -60,4 +60,5 @@ npm run build --report
 1. **实现首页轮播图**
    * 借助第三方库——swiper
 2. **实现首页Nav导航以及Nav底部自制scroll**
+3. **完成商品列表布局**
 ## 后续持续更新

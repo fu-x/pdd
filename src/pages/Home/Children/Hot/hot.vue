@@ -15,12 +15,19 @@
     </swiper>
     <!-- 中间导航 -->
     <hotNav></hotNav>
+    <!-- 广告位 -->
+    <div class="hot-ad">
+      <img src="../../../../common/img/home-ad/center_banner.jpeg" alt="" width="100%">
+    </div>
+    <!-- 商品列表 -->
+    <hotShopList></hotShopList>
   </div>
 </template>
 
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
+import hotShopList from './hotShopList'
 
 import hotNav from './hotNav'
 export default {
@@ -48,7 +55,8 @@ export default {
   components: {
     swiper,
     swiperSlide,
-    hotNav
+    hotNav,
+    hotShopList
   },
 }
 </script>
