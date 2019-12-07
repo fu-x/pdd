@@ -61,4 +61,7 @@ npm run build --report
    * 借助第三方库——swiper
 2. **实现首页Nav导航以及Nav底部自制scroll**
 3. **完成商品列表布局**
+
+## 第四天
+1. **封装axios**
 ## 后续持续更新
