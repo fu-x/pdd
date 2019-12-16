@@ -1,16 +1,8 @@
 <template>
   <div class="hot">
     <!-- 轮播图 -->
-    <swiper :options="swiperOption" ref="mySwiper">
-      <swiper-slide><img src="../../../../common/img/home-swiper/s1.png"></swiper-slide>
-      <swiper-slide><img src="../../../../common/img/home-swiper/s2.png"></swiper-slide>
-      <swiper-slide><img src="../../../../common/img/home-swiper/s3.png"></swiper-slide>
-      <swiper-slide><img src="../../../../common/img/home-swiper/s4.png"></swiper-slide>
-      <swiper-slide><img src="../../../../common/img/home-swiper/s5.png"></swiper-slide>
-      <swiper-slide><img src="../../../../common/img/home-swiper/s6.png"></swiper-slide>
-      <swiper-slide><img src="../../../../common/img/home-swiper/s7.png"></swiper-slide>
-      <swiper-slide><img src="../../../../common/img/home-swiper/s8.png"></swiper-slide>
-      <swiper-slide><img src="../../../../common/img/home-swiper/s9.png"></swiper-slide>
+    <swiper :options="swiperOption" ref="mySwiper" v-if="homecasual.length>0">
+      <swiper-slide v-for="(item, index) in homecasual" :key="index"><img :src="item.imgurl"></swiper-slide>
       <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
     <!-- 中间导航 -->
@@ -30,6 +22,10 @@ import 'swiper/dist/css/swiper.css'
 import hotShopList from './hotShopList'
 
 import hotNav from './hotNav'
+import {
+  mapState
+} from 'vuex'
+
 export default {
   name: "hot",
   data () {
@@ -40,17 +36,21 @@ export default {
         spaceBetween: 10,
         loop:true,
         speed:600,
-        autoplay:true,
+        autoplay:{
+          /* 触摸滑动后是否继续轮播 */
+          disableOnInteraction: false
+        },
         pagination: {
           el: '.swiper-pagination',
-        },
+        }
       }
     }
   },
   computed: {
     swiper() {
-      return this.$refs.mySwiper.swiper
-    }
+      return this.$refs.mySwiper.swiper;
+    },
+    ...mapState(['homecasual'])
   },
   components: {
     swiper,
@@ -58,6 +58,11 @@ export default {
     hotNav,
     hotShopList
   },
+  mounted(){
+    this.$store.dispatch('reqHomeCasual'); // 获取轮播图数据
+    this.$store.dispatch('reqHomeNav'); // 获取导航数据
+    this.$store.dispatch('reqHomeShopList'); // 获取商品列表数据
+  }
 }
 </script>
 

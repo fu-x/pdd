@@ -1,58 +1,15 @@
 <template>
   <div class="shop-container">
-    <ul class="goods-list">
-      <li class="goods-item">
-        <img class="goods-img" src="../../../../common/img/hot-list/hot-goods (4).jpg" alt="">
+    <ul class="goods-list" v-if="homeshoplist && homeshoplist.length > 0">
+      <li class="goods-item" v-for="(item, index) in homeshoplist" :key="index">
+        <img class="goods-img" v-lazy="item.thumb_url" alt="">
         <div class="goods-content">
-          <h4 class="goods-title">【42.9元抢5000件，抢完恢复45元】【抗寒-20°】大码冲锋衣加绒加厚防风防水棉服外套男防寒登山服</h4>
+          <h4 class="goods-title">{{item.goods_name}}</h4>
           <div class="goods-bottom">
-            <span class="goods-price">￥69</span>
-            <span class="goods-counter">已拼5699件</span>
+            <span class="goods-price">￥{{item.normal_price/100}}</span>
+            <span class="goods-counter">{{item.sales_tip}}</span>
             <span class="goods-user">
-              <img class="user1" src="../../../../common/img/hot-list/user1.jpg">
-              <img class="user2" src="../../../../common/img/hot-list/user2.jpg">
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="goods-item">
-        <img class="goods-img" src="../../../../common/img/hot-list/hot-goods (4).jpg" alt="">
-        <div class="goods-content">
-          <h4 class="goods-title">【42.9元抢5000件，抢完恢复45元】【抗寒-20°】大码冲锋衣加绒加厚防风防水棉服外套男防寒登山服</h4>
-          <div class="goods-bottom">
-            <span class="goods-price">￥69</span>
-            <span class="goods-counter">已拼5699件</span>
-            <span class="goods-user">
-              <img class="user1" src="../../../../common/img/hot-list/user1.jpg">
-              <img class="user2" src="../../../../common/img/hot-list/user2.jpg">
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="goods-item">
-        <img class="goods-img" src="../../../../common/img/hot-list/hot-goods (4).jpg" alt="">
-        <div class="goods-content">
-          <h4 class="goods-title">【42.9元抢5000件，抢完恢复45元】【抗寒-20°】大码冲锋衣加绒加厚防风防水棉服外套男防寒登山服</h4>
-          <div class="goods-bottom">
-            <span class="goods-price">￥69</span>
-            <span class="goods-counter">已拼5699件</span>
-            <span class="goods-user">
-              <img class="user1" src="../../../../common/img/hot-list/user1.jpg">
-              <img class="user2" src="../../../../common/img/hot-list/user2.jpg">
-            </span>
-          </div>
-        </div>
-      </li>
-      <li class="goods-item">
-        <img class="goods-img" src="../../../../common/img/hot-list/hot-goods (4).jpg" alt="">
-        <div class="goods-content">
-          <h4 class="goods-title">【42.9元抢5000件，抢完恢复45元】【抗寒-20°】大码冲锋衣加绒加厚防风防水棉服外套男防寒登山服</h4>
-          <div class="goods-bottom">
-            <span class="goods-price">￥69</span>
-            <span class="goods-counter">已拼5699件</span>
-            <span class="goods-user">
-              <img class="user1" src="../../../../common/img/hot-list/user1.jpg">
-              <img class="user2" src="../../../../common/img/hot-list/user2.jpg">
+              <img class="user1" v-lazy="user.avatar" v-for="(user, index) in item.bubble" :key="index">
             </span>
           </div>
         </div>
@@ -62,8 +19,19 @@
 </template>
 
 <script>
+import {
+  mapState
+} from 'vuex'
+
 export default {
   name:'hotShopList',
+  computed: {
+    ...mapState(['homeshoplist'])
+  },
+  mounted(){
+    console.log(this.homeshoplist);
+    
+  }
 }
 </script>
 
@@ -74,14 +42,14 @@ export default {
   .goods-list
     .goods-item
       height 168px
-      padding 5px
+      padding 2px
       display flex
       justify-content space-between
       .goods-img 
-        width 45%
+        width 42%
         margin 5px
       .goods-content
-        width 50%
+        width 55%
         display flex
         flex-direction column
         justify-content space-between
@@ -112,10 +80,10 @@ export default {
             .user1
               flex none
               margin-right -8px
-              width 40%
+              width 22px
               border-radius 50%
             .user2
               margin-right 10px
               border-radius 50%
-              width 40%
+              width 22px
 </style>

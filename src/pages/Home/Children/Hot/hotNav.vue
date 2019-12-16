@@ -2,70 +2,10 @@
   <div class="hot-nav">
     <!-- 滚动区域 -->
     <div class="hot-nav-content">
-      <div class="nav-content-inner">
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
-        </a>
-        <a class="inner-item">
-          <img src="../../../../common/img/home-hotNav/nav_icon01.png">
-          <span>现时秒杀</span>
+      <div class="nav-content-inner" v-if="homenav.length > 0">
+        <a class="inner-item" v-for="(item, index) in homenav" :key="index">
+          <img :src="item.iconurl">
+          <span>{{item.icontitle}}</span>
         </a>
       </div>
     </div>
@@ -78,6 +18,10 @@
 </template>
 
 <script>
+import {
+  mapState
+} from 'vuex'
+
 export default {
   name:'hotNav',
   data(){
@@ -104,28 +48,23 @@ export default {
         width:`${this.barInnerW}px`,
         left:`${this.barMoveLength}px`
         }
-    }
+    },
+    ...mapState(['homenav'])
   },
   methods:{
-    getBottomBarW(){
-      this.barInnerW = this.bgBarW * (this.screenW / this.scrollContentW);
+    getBottomBarW(){  // 获取滚动条宽度
+      this.barInnerW = this.bgBarW * (this.screenW / this.scrollContentW);  
       if(this.barInnerW > this.bgBarW) this.barInnerW = this.bgBarW;
     },
-    bindEvent(){
+    bindEvent(){  // 绑定事件
       this.$el.addEventListener('touchstart', this.handleTouchStart, false);
       this.$el.addEventListener('touchmove', this.handleTouchMove, false);
       this.$el.addEventListener('touchend', this.handleTouchEnd, false);
-      this.$el.addEventListener('scroll',this.handleScrollMove,false);
     },
-    handleScrollMove(event){
-      console.log(event);
-      
-    }
-    ,
-    handleTouchStart(event){
+    handleTouchStart(event){  // 开始触摸
       this.startPoint = event.changedTouches[0].pageX;
     },
-    handleTouchMove(event){
+    handleTouchMove(event){ // 触摸移动
       var contentMoveLength = event.changedTouches[0].pageX - this.startPoint;
       this.barMoveLength = -contentMoveLength * (this.bgBarW / this.scrollContentW) + this.endPoint;
       if(this.barMoveLength < 0){
@@ -134,7 +73,7 @@ export default {
         this.barMoveLength = this.bgBarW - this.barInnerW;
       }
     },
-    handleTouchEnd(event){
+    handleTouchEnd(event){  //停止触摸
       this.endPoint = this.barMoveLength;
     }
   },
