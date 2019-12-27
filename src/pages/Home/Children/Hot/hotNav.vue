@@ -29,7 +29,7 @@ export default {
       // 屏幕的宽度
       screenW: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
       // 滚动内容的宽度
-      scrollContentW: 720,
+      scrollContentW: 750,
       // 滚动条背景长度
       bgBarW: 80,
       // 滚动条长度
@@ -53,6 +53,9 @@ export default {
   },
   methods:{
     getBottomBarW(){  // 获取滚动条宽度
+      console.log(this.screenW);
+      console.log(this.scrollContentW);
+      
       this.barInnerW = this.bgBarW * (this.screenW / this.scrollContentW);  
       if(this.barInnerW > this.bgBarW) this.barInnerW = this.bgBarW;
     },
@@ -95,7 +98,7 @@ export default {
     width 100%
     overflow-x scroll
     .nav-content-inner
-      width 720px
+      width 750px
       height 180px
       display flex
       flex-wrap wrap
@@ -107,7 +110,7 @@ export default {
         justify-content center
         align-items  center
         color #666666
-        font-size 14px
+        font-size 13px
         img 
           width 50%
           margin-bottom 10px
@@ -121,14 +124,15 @@ export default {
     left 50%
     margin-left -40px
     bottom 8px
-    border:1px solid #ccc;
-    border-radius:25px;
+    border 1px solid #ccc
+    border-radius 25px
     .hot-nav-bottom-inner
       position absolute
       width 0
       height 50%
       left 0
       background-color orangered
-      border 1px solid orangered
-      border-radius 50px
+      border-bottom 1px solid orangered
+      border-top 1px solid orangered
+      border-radius 5px
 </style>

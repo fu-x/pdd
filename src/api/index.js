@@ -9,3 +9,5 @@ export const getHomeCasual = ()=> ajax(BASE_URL + '/api/homecasual');
 export const getHomeNav = ()=> ajax(BASE_URL + '/api/homenav');
 // 请求首页商品列表
 export const getHomeShopList = ()=> ajax(BASE_URL + '/api/homeshoplist');
+// 请求商品分类
+export const getSearchGoods = ()=> ajax(BASE_URL + '/api/searchgoods');

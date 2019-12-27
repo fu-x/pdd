@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <router-view class="contain"></router-view>
-    <tabbar class="footer"></tabbar>
+    <tabbar></tabbar>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   .main
     width 100%
     height 100%
+    position relative
     .contain
       flex none
 </style>

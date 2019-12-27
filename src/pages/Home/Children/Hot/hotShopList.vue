@@ -5,11 +5,15 @@
         <img class="goods-img" v-lazy="item.thumb_url" alt="">
         <div class="goods-content">
           <h4 class="goods-title">{{item.goods_name}}</h4>
+          <div class="goods-type">
+            <span class="type">极速退换</span>
+            <span class="type">退换包运费</span>
+          </div>
           <div class="goods-bottom">
             <span class="goods-price">￥{{item.normal_price/100}}</span>
             <span class="goods-counter">{{item.sales_tip}}</span>
             <span class="goods-user">
-              <img class="user1" v-lazy="user.avatar" v-for="(user, index) in item.bubble" :key="index">
+              <img class="user" v-lazy="user.avatar" v-for="(user, index) in item.bubble" :key="index">
             </span>
           </div>
         </div>
@@ -61,6 +65,12 @@ export default {
           margin-left 3%
           font-size 14px
           overflow hidden
+        .goods-type
+          font-size 11px
+          color red
+          padding-top 50px
+          .type
+            background-color rgba(255, 87, 6, 0.08)
         .goods-bottom
           margin-bottom 5px
           display flex
@@ -77,13 +87,9 @@ export default {
             flex none
           .goods-user
             width 50px
-            .user1
+            .user
               flex none
               margin-right -8px
               width 22px
               border-radius 50%
-            .user2
-              margin-right 10px
-              border-radius 50%
-              width 22px
 </style>

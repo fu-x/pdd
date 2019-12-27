@@ -1,13 +1,15 @@
 import {
   getHomeCasual,
   getHomeNav,
-  getHomeShopList
+  getHomeShopList,
+  getSearchGoods
 } from '../api/index'
 
 import {
   HOME_CASUAL,
   HOME_NAV,
-  HOME_SHOPLIST
+  HOME_SHOPLIST,
+  SEARCH_GOODS
 } from './mutation-type'
 
 export default {
@@ -23,5 +25,9 @@ export default {
   async reqHomeShopList({commit}){
     const result = await getHomeShopList();
     commit(HOME_SHOPLIST,{homeshoplist: result.message.goods_list});
+  },
+  async reqSearchGoods({commit}){
+    const result = await getSearchGoods();
+    commit(SEARCH_GOODS,{searchgoods: result.message.data});
   },
 }
