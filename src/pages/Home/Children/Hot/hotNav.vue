@@ -29,7 +29,7 @@ export default {
       // 屏幕的宽度
       screenW: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
       // 滚动内容的宽度
-      scrollContentW: 750,
+      scrollContentW: 720,
       // 滚动条背景长度
       bgBarW: 80,
       // 滚动条长度
@@ -98,7 +98,7 @@ export default {
     width 100%
     overflow-x scroll
     .nav-content-inner
-      width 750px
+      width 800px
       height 180px
       display flex
       flex-wrap wrap
@@ -118,14 +118,12 @@ export default {
     display none
   .hot-nav-bottom
     width 80px
-    height 2px
+    height 3px
     background-color #ccc
     position absolute
     left 50%
     margin-left -40px
     bottom 8px
-    border 1px solid #ccc
-    border-radius 25px
     .hot-nav-bottom-inner
       position absolute
       width 0

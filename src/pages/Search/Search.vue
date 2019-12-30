@@ -7,19 +7,33 @@
     <div class="category-container">
       <div class="first-category">
         <ul>
-          <li class="menu-item" v-for="(goods, index) in searchgoods" :key="index">
+          <li class="menu-item" 
+          v-for="(goods, index) in searchgoods" 
+          :key="index"
+          :class="{current: index === currentIndex}"
+          @click="clickLeftLi(index)"
+          ref="leftList"
+          >
             <span>{{goods.name}}</span>
           </li>
         </ul>
       </div>
       <div class="second-category">
-        <ul>
-          <li class="category-item" v-for="(goods, index1) in searchgoods" :key="index1">
+        <ul ref="categoryParent">
+          <li class="category-item" 
+          v-for="(goods, index1) in searchgoods" 
+          :key="index1"
+          >
             <div class="category-title">
               <h5>{{goods.name}}</h5>
             </div>
+            <ul class="goods-brands" v-if="goods.tag !==''">
+              <li class="brands-item" v-for="(item, index2) in goods.category" :key="index2">
+                <img :src="item.icon" alt="">
+              </li>
+            </ul>
             <ul class="shop-list">
-              <li class="shop-item" v-for="(item, index2) in goods.items" :key="index2">
+              <li class="shop-item" v-for="(item, index3) in goods.items" :key="index3">
                 <img :src="item.icon" alt="">
                 <span>{{item.title}}</span>
               </li>
@@ -40,6 +54,12 @@ import {
 
 export default {
   name:'Search',
+  data(){
+    return {
+      scrollY:0, // 右侧列表滑动的Y轴坐标（实时更新）
+      rightLiTops: [] // 所有分类的顶部位置
+    }
+  },
   components:{
     searchnav
   },
@@ -47,25 +67,68 @@ export default {
     this.$store.dispatch('reqSearchGoods');
   },
   computed:{
-    ...mapState(['searchgoods'])
+    ...mapState(['searchgoods']),
+    currentIndex(){  // 计算当前页面显示二级分类列表对应的索引
+      return this.rightLiTops.findIndex((value, index)=>{ 
+        this._leftScroll(index);
+        return this.scrollY >= this.rightLiTops[index] && this.scrollY < this.rightLiTops[index + 1];
+      })
+    }
   },
   watch:{
     searchgoods(){
       this.$nextTick(()=>{
         this._initBScroll();
+        this._initRightLiTops();
       })
     }
   },
   methods:{
     _initBScroll(){
-      let leftScroll = new BScroll('.first-category',{
+      // 初始化左边一级分类列表滚动
+      this.leftScroll = new BScroll('.first-category',{
           scrollY: true,
           click: true
       })
-      let rightScroll = new BScroll('.second-category',{
+      // 初始化右边二级分类列表滚动
+      this.rightScroll = new BScroll('.second-category',{
           scrollY: true,
-          click: true
+          click: true,
+          probeType: 3 
       })
+      // 二级分类绑定滚动事件，获取当前y轴的位置
+      this.rightScroll.on('scroll', (pos)=>{
+        this.scrollY = Math.abs(pos.y);
+      })
+    },
+    // 获取二级分类各个板块的位置
+    _initRightLiTops(){ 
+      //定义临时数组
+      const tempArr = [];
+      //定义变量记录li高度
+      let top = 0;
+      tempArr.push(top);
+      //获取li元素
+      let allLis = this.$refs.categoryParent.getElementsByClassName('category-item');
+      //将allLis转为数组并且遍历，获取位置
+      Array.prototype.slice.call(allLis).forEach(li => {
+        top += li.clientHeight;
+        tempArr.push(top);
+      });
+      this.rightLiTops = tempArr;
+    },
+    // 点击左侧一级分类，实现二级分类联动
+    clickLeftLi(index){
+      this.scrollY = this.rightLiTops[index];
+      console.log(-this.scrollY);
+      this.rightScroll.scrollTo(0, -this.scrollY, 0);
+    },
+    // 实现一级分类联动
+    _leftScroll(index){
+      let leftLists = this.$refs.leftList;
+      console.log(index);
+      let el = leftLists[index];
+      this.leftScroll.scrollToElement(el, 300, 0, -500)
     }
   }
 }
@@ -118,6 +181,18 @@ export default {
             margin-top 20px
             font-size 17px
             font-weight lighter
+        .goods-brands
+          width 100%
+          display flex
+          flex-wrap wrap
+          .brands-item
+            width 33.3%
+            display flex
+            justify-content center
+            align-items center
+            img 
+              width 70%
+              margin 10px 0
         .shop-list
           display flex
           flex-wrap wrap
