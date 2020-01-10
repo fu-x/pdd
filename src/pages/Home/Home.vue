@@ -1,5 +1,10 @@
 <template>
   <div class="home">
+    <!-- 搜索栏 -->
+    <searchnav :showSearchPanel='showSearchPanel'></searchnav>
+    <!-- 搜索界面 -->
+    <searchpanel v-show="isShow" :showSearchPanel='showSearchPanel'></searchpanel>
+    <!-- 首页导航 -->
     <ly-tab
       v-model="selectedId"
       :items="items"
@@ -12,6 +17,9 @@
 </template>
 
 <script>
+import searchnav from '../Search/Children/SearchNav';
+import searchpanel from '../Search/Children/SearchPanel';
+
 export default {
   name:'Home',
   data(){
@@ -28,6 +36,7 @@ export default {
         {label:'男装'},
         {label:'电器'}
       ],
+      isShow: false,
       options: {
         activeColor: '#e9232c' //设置选中tab的颜色
       },
@@ -37,7 +46,15 @@ export default {
   methods: {
     handleChange(item, index){
       this.$router.replace(this.subRouteUrl[index])
+    },
+    // 显示搜索界面
+    showSearchPanel(flag){
+      this.isShow = flag;
     }
+  },
+  components:{
+    searchnav,
+    searchpanel
   }
 }
 </script>
@@ -47,8 +64,8 @@ export default {
   width 100%
   height 100%
   .fix
-    position fixed
-    top 0
+    position absolute
+    top 50px
     left 0
     z-index 900
     width 100%

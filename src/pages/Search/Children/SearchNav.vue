@@ -1,6 +1,6 @@
 <template>
   <div class="search-container">
-    <a class="search-icon">
+    <a class="search-icon" @click='showSearchPanel(true)'>
       <img src="../images/search.png">
       <span>笔记本电脑</span>
     </a>
@@ -9,7 +9,8 @@
 
 <script>
 export default {
-  name:'SearchNav'
+  name:'SearchNav',
+  props:['showSearchPanel']
 }
 </script>
 
@@ -22,6 +23,8 @@ export default {
   display flex
   justify-content center
   align-items center
+  position fixed
+  z-index 999
   .search-icon
     width 92%
     height 70%

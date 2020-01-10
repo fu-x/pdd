@@ -2,12 +2,12 @@
   <div class="hot-nav">
     <!-- 滚动区域 -->
     <div class="hot-nav-content">
-      <div class="nav-content-inner" v-if="homenav.length > 0">
-        <a class="inner-item" v-for="(item, index) in homenav" :key="index">
+      <ul class="nav-content-inner" v-show="homenav.length > 0">
+        <li class="inner-item" v-for="(item, index) in homenav" :key="index" :style="navItemStyle">
           <img :src="item.iconurl">
           <span>{{item.icontitle}}</span>
-        </a>
-      </div>
+        </li>
+      </ul>
     </div>
     <!-- 滚动条 -->
     <div class="hot-nav-bottom">
@@ -21,6 +21,7 @@
 import {
   mapState
 } from 'vuex'
+import BScroll from 'better-scroll';
 
 export default {
   name:'hotNav',
@@ -29,17 +30,17 @@ export default {
       // 屏幕的宽度
       screenW: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
       // 滚动内容的宽度
-      scrollContentW: 720,
+      scrollContentW: 750,
       // 滚动条背景长度
       bgBarW: 80,
       // 滚动条长度
       barInnerW: 0,
-      // 记录起点
-      startPoint: 0,
-      // 记录终点
-      endPoint: 0,
       // 记录滚动条移动距离
       barMoveLength: 0,
+      // 记录X轴滚动距离左侧位置
+      scrollX: 0,
+      // navItem的宽度
+      navItemW: 0
     }
   },
   computed:{
@@ -49,40 +50,49 @@ export default {
         left:`${this.barMoveLength}px`
         }
     },
+    navItemStyle(){
+      return {
+        width:`${this.navItemW}px`,
+      }
+    },
     ...mapState(['homenav'])
   },
   methods:{
     getBottomBarW(){  // 获取滚动条宽度
-      console.log(this.screenW);
-      console.log(this.scrollContentW);
-      
       this.barInnerW = this.bgBarW * (this.screenW / this.scrollContentW);  
       if(this.barInnerW > this.bgBarW) this.barInnerW = this.bgBarW;
     },
-    bindEvent(){  // 绑定事件
-      this.$el.addEventListener('touchstart', this.handleTouchStart, false);
-      this.$el.addEventListener('touchmove', this.handleTouchMove, false);
-      this.$el.addEventListener('touchend', this.handleTouchEnd, false);
+    getBarMoveLength(){ // 获取滚动条需要移动的距离
+      this.barMoveLength = (this.bgBarW / this.scrollContentW) * this.scrollX;
     },
-    handleTouchStart(event){  // 开始触摸
-      this.startPoint = event.changedTouches[0].pageX;
-    },
-    handleTouchMove(event){ // 触摸移动
-      var contentMoveLength = event.changedTouches[0].pageX - this.startPoint;
-      this.barMoveLength = -contentMoveLength * (this.bgBarW / this.scrollContentW) + this.endPoint;
-      if(this.barMoveLength < 0){
-        this.barMoveLength = 0;
-      }else if(this.barMoveLength >= (this.bgBarW - this.barInnerW)){
-        this.barMoveLength = this.bgBarW - this.barInnerW;
-      }
-    },
-    handleTouchEnd(event){  //停止触摸
-      this.endPoint = this.barMoveLength;
+    getNavItemW(){ // 获取navItem的宽度（屏幕的5分之1）
+      console.log(111);
+      this.navItemW = this.screenW * 0.2;
     }
   },
   mounted(){
     this.getBottomBarW();
-    this.bindEvent();
+    this.getNavItemW();
+  },
+  watch:{
+    homenav(){
+      // 初始化nav滚动
+      this.navScroll = new BScroll('.hot-nav-content',{
+          probeType: 3,
+          scrollX: true,
+          eventPassthrough: true,
+          bounce: false
+        });
+      // 绑定滚动事件，获取当前X轴的位置
+      this.navScroll.on('scroll', (pos)=>{
+        this.scrollX = Math.abs(Math.round(pos.x));
+        console.log(this.scrollX);
+        
+      })
+    },
+    scrollX(){
+      this.getBarMoveLength();
+    }
   }
 }
 </script>
@@ -96,9 +106,9 @@ export default {
   padding-bottom 10px
   .hot-nav-content
     width 100%
-    overflow-x scroll
+    overflow hidden
     .nav-content-inner
-      width 800px
+      width 750px
       height 180px
       display flex
       flex-wrap wrap
@@ -118,8 +128,10 @@ export default {
     display none
   .hot-nav-bottom
     width 80px
-    height 3px
+    height 1px
     background-color #ccc
+    border 1px solid #ccc
+    border-radius 5px
     position absolute
     left 50%
     margin-left -40px
@@ -127,7 +139,8 @@ export default {
     .hot-nav-bottom-inner
       position absolute
       width 0
-      height 50%
+      height 30%
+      top 0
       left 0
       background-color orangered
       border-bottom 1px solid orangered
