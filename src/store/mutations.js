@@ -2,7 +2,8 @@ import {
   HOME_CASUAL,
   HOME_NAV,
   HOME_SHOPLIST,
-  SEARCH_GOODS
+  SEARCH_GOODS,
+  RECOMMEND_GOODS
 } from './mutation-type'
 
 
@@ -18,5 +19,8 @@ export default {
   },
   [SEARCH_GOODS](state, {searchgoods}){
     state.searchgoods= searchgoods;
+  },
+  [RECOMMEND_GOODS](state, {recommendgoods}){
+    state.recommendgoods= state.recommendgoods.concat(recommendgoods);
   },
 }

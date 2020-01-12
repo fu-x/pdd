@@ -5,6 +5,9 @@ import LyTab from 'ly-tab'
 import store from './store/index'
 // 引入并配置图片懒加载
 import VueLazyload from 'vue-lazyload'
+//引入Mint-ui组件
+import { Loadmore } from 'mint-ui';
+Vue.component(Loadmore.name, Loadmore);
 
 Vue.use(VueLazyload, {
   loading: require('./common/img/loading.jpg'),//加载中图片，一定要有，不然会一直重复加载占位图

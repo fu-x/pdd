@@ -4,7 +4,7 @@
       <svg t="1578640420118" @click="showSearchPanel(false)" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1108" width="200" height="200"><path d="M305.519192 557.640404c-11.636364 0-23.40202-4.39596-32.323232-13.317172-17.842424-17.842424-17.842424-46.674747 0-64.517171L683.830303 69.30101c17.842424-17.842424 46.674747-17.842424 64.517172 0 17.842424 17.842424 17.842424 46.674747 0 64.517172L337.713131 544.323232c-8.921212 8.921212-20.557576 13.317172-32.193939 13.317172z m0 0" fill="#8a8a8a" p-id="1109"></path><path d="M715.894949 968.145455c-11.636364 0-23.40202-4.39596-32.323232-13.317172L273.19596 544.323232c-17.842424-17.842424-17.842424-46.674747 0-64.517171 17.842424-17.842424 46.674747-17.842424 64.517171 0l410.505051 410.50505c17.842424 17.842424 17.842424 46.674747 0 64.517172-8.921212 8.921212-20.557576 13.317172-32.323233 13.317172z m0 0" fill="#8a8a8a" p-id="1110"></path></svg>
       <div class="search-input">
         <img src="../images/search.png" alt="">
-        <input type="search" placeholder="步步高点读机">
+        <input type="search" placeholder="步步高点读机" ref="mySearch">
       </div>
       <button class="search-btn">搜索</button>
     </div>
@@ -30,7 +30,10 @@
 <script>
 export default {
   name:'SearchPanel',
-  props:['showSearchPanel']
+  props:['showSearchPanel'],
+  mounted(){
+    this.$refs.mySearch.focus();
+  }
 }
 </script>
 
@@ -63,8 +66,10 @@ export default {
         height 70%
         margin 0 10px
       input
+        width 80%
         border none
         background-color transparent
+        outline none
     .search-btn
       border none
       background-color transparent
