@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <router-view class="contain"></router-view>
-    <tabbar></tabbar>
+    <tabbar v-if="$route.meta.showBottomTabBar"></tabbar>
   </div>
 </template>
 

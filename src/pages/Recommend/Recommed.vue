@@ -61,12 +61,18 @@ export default {
           let msg = '加载中...';
           if(this.page > 5){
             msg = '暂无更多数据'
+            Indicator.open(msg);
+            setTimeout(()=>{
+              Indicator.close();
+            },1000)
           }
-          Indicator.open(msg);
-          this.$store.dispatch('reqRecommendGoods', {page: this.page, count: this.count, callback:()=>{
-            Indicator.close();
-          }});
-          this.listScroll.refresh();
+          else{
+            Indicator.open(msg);
+            this.$store.dispatch('reqRecommendGoods', {page: this.page, count: this.count, callback:()=>{
+              Indicator.close();
+            }});
+            this.listScroll.refresh();
+          }
         }
       }),
       this.listScroll.on('scrollEnd', ()=>{
