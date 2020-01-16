@@ -3,5 +3,5 @@ export default {
   homenav: [], // 首页导航
   homeshoplist: [], //首页商品列表
   searchgoods: [], //商品分类
-  recommendgoods: []
+  recommendgoods: [], //推荐商品列表
 }

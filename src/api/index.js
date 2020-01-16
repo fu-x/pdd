@@ -13,3 +13,5 @@ export const getHomeShopList = ()=> ajax(BASE_URL + '/api/homeshoplist');
 export const getSearchGoods = ()=> ajax(BASE_URL + '/api/searchgoods');
 // 请求推荐页面商品列表
 export const getRecommendGoods = (params)=> ajax(BASE_URL + '/api/recommendshoplist', params);
+// 请求手机验证码
+export const getPhoneCode = (phone)=> ajax(BASE_URL + '/api/usercode', {phone});
