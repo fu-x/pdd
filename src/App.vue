@@ -11,6 +11,9 @@ export default {
   name:'App',
   components:{
     tabbar
+  },
+  mounted(){
+    this.$store.dispatch('reqIsLogin');
   }
 }
 </script>

@@ -3,7 +3,8 @@ import {
   getHomeNav,
   getHomeShopList,
   getSearchGoods,
-  getRecommendGoods
+  getRecommendGoods,
+  getIsLogin
 } from '../api/index'
 
 import {
@@ -11,7 +12,9 @@ import {
   HOME_NAV,
   HOME_SHOPLIST,
   SEARCH_GOODS,
-  RECOMMEND_GOODS
+  RECOMMEND_GOODS,
+  USER_INFO,
+  IS_LOGIN
 } from './mutation-type'
 
 export default {
@@ -38,4 +41,13 @@ export default {
     commit(RECOMMEND_GOODS,{recommendgoods: result.message});
     params.callback && params.callback();
   },
+  syncUserInfo({commit}, userInfo){
+    commit(USER_INFO, {userInfo: userInfo});
+  },
+  async reqIsLogin({commit}){
+    const result = await getIsLogin();
+    console.log(result);
+    if(result.status === 200)
+      commit(IS_LOGIN, {userInfo: result.message});
+  }
 }
