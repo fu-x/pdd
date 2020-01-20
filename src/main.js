@@ -5,8 +5,11 @@ import LyTab from 'ly-tab'
 import store from './store/index'
 // 引入并配置图片懒加载
 import VueLazyload from 'vue-lazyload'
-//引入Mint-ui组件
+// 引入Mint-ui组件
 import { Loadmore } from 'mint-ui';
+// 引入字体图标样式
+import '../static/css/style.css'
+
 Vue.component(Loadmore.name, Loadmore);
 
 Vue.use(VueLazyload, {

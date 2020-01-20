@@ -2,19 +2,27 @@
   <div class="me">
     <selectlogin v-if="!this.userinfo.id"></selectlogin>
     <div v-else>
-      Me
+      <metop></metop>
+      <meorder></meorder>
+      <metools></metools>
     </div>
   </div>
 </template>
 
 <script>
 import selectlogin from '../Login/SelectLogin'
+import metop from './MeTop'
+import meorder from './MeOrder'
+import metools from './MeTools'
 import {mapState} from 'vuex'
 
 export default {
   name:'Me',
   components:{
-    selectlogin
+    selectlogin,
+    metop,
+    meorder,
+    metools
   },
   computed:{
     ...mapState(['userinfo'])

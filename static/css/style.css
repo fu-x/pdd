@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'user-icon';
+  src:  url('../fonts/user-icon.eot?le0gp1');
+  src:  url('../fonts/user-icon.eot?le0gp1#iefix') format('embedded-opentype'),
+    url('../fonts/user-icon.ttf?le0gp1') format('truetype'),
+    url('../fonts/user-icon.woff?le0gp1') format('woff'),
+    url('../fonts/user-icon.svg?le0gp1#user-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'user-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user_01:before {
+  content: "\e900";
+  color: #5188ed;
+  font-size: 22px;
+}
+.icon-user_02:before {
+  content: "\e901";
+  color: #bfbfbf;
+  font-size: 32px;
+}
+.icon-user_03:before {
+  content: "\e902";
+  color: #bfbfbf;
+  font-size: 32px;
+}
+.icon-user_04:before {
+  content: "\e903";
+  color: #bfbfbf;
+  font-size: 32px;
+}
+.icon-user_05:before {
+  content: "\e904";
+  color: #bfbfbf;
+  font-size: 32px;
+}
+.icon-user_06:before {
+  content: "\e905";
+  color: #bfbfbf;
+  font-size: 32px;
+}
+.icon-user_07:before {
+  content: "\e906";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_08:before {
+  content: "\e907";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_09:before {
+  content: "\e908";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_10:before {
+  content: "\e909";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_11:before {
+  content: "\e90a";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_12:before {
+  content: "\e90b";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_13:before {
+  content: "\e90c";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_14:before {
+  content: "\e90d";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_15:before {
+  content: "\e90e";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_16:before {
+  content: "\e90f";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon-user_17:before {
+  content: "\e910";
+  color: #e0620d;
+  font-size: 32px;
+}
