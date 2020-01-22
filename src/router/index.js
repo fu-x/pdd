@@ -5,9 +5,11 @@ import Router from 'vue-router'
 import home from '../pages/Home/Home.vue';
 import search from '../pages/Search/Search.vue';
 import recommend from '../pages/Recommend/Recommed.vue';
-import chat from '../pages/Chat/Chat.vue';
+import cart from '../pages/cart/cart.vue';
 import me from '../pages/Me/Me.vue';
 import login from '../pages/Login/Login.vue'
+import mesetting from '../pages/Me/MeSetting.vue'
+import medetail from '../pages/Me/MeDetail.vue';
 // 二级路由
 import hot from '../pages/Home/Children/Hot/hot.vue'
 import man from '../pages/Home/Children/man.vue'
@@ -50,8 +52,8 @@ export default new Router({
       component: recommend,
       meta: {showBottomTabBar: true}
     }, {
-      path: '/chat',
-      component: chat,
+      path: '/cart',
+      component: cart,
       meta: {showBottomTabBar: true}
     }, {
       path: '/me',
@@ -60,6 +62,12 @@ export default new Router({
     }, {
       path: '/login',
       component: login
+    },{
+      path: '/setting',
+      component: mesetting
+    },{
+      path: '/detail',
+      component: medetail
     }
   ]
 })

@@ -13,8 +13,8 @@
       <label :class="{'on': $route.path.includes('/search')}">搜索</label>
     </span>
     <span class="tab-item">
-      <img :src="$route.path.includes('/chat')?imgPathArr[3].selected:imgPathArr[3].normal" @click="switchTo('/chat')" alt="">
-      <label :class="{'on': $route.path.includes('/chat')}">聊天</label>
+      <img :src="$route.path.includes('/cart')?imgPathArr[3].selected:imgPathArr[3].normal" @click="switchTo('/cart')" alt="">
+      <label :class="{'on': $route.path.includes('/cart')}">购物车</label>
     </span>
     <span class="tab-item">
       <img :src="$route.path.includes('/me')?imgPathArr[4].selected:imgPathArr[4].normal" @click="switchTo('/me')" alt="">
@@ -32,7 +32,7 @@ export default {
         {normal:require('../../common/img/icon_home.png'), selected:require('../../common/img/icon_home_selected.png')},
         {normal:require('../../common/img/icon_intro.png'), selected:require('../../common/img/icon_intro_selected.png')},
         {normal:require('../../common/img/icon_search.png'), selected:require('../../common/img/icon_search_selected.png')},
-        {normal:require('../../common/img/icon_chat.png'), selected:require('../../common/img/icon_chat_selected.png')},
+        {normal:require('../../common/img/icon_cart.png'), selected:require('../../common/img/icon_cart_selected.png')},
         {normal:require('../../common/img/icon_mine.png'), selected:require('../../common/img/icon_mine_selected.png')}
       ]
     }

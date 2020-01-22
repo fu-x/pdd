@@ -10,7 +10,7 @@
       <div class="item-bottom">
         <span class="item-price">￥{{item.normal_price/100}}</span>
         <span class="item-sales">{{item.sales_tip}}</span>
-        <button class="item-btn" v-if="flag">找相关></button>
+        <button class="item-btn" v-if="flag">添加购物车</button>
         <span class="item-user" v-else>
           <img class="user" v-lazy="user.avatar" v-for="(user, index) in item.bubble" :key="index">
         </span>
@@ -69,7 +69,7 @@ export default {
             border-right none
             color #58595b
             background-color #fff 
-            font-size 10px
+            font-size 9px
             border-radius 15px 0 0 15px
             height 25px
           .item-user

@@ -1,6 +1,6 @@
 <template>
   <div class="me">
-    <selectlogin v-if="!this.userinfo.id"></selectlogin>
+    <selectlogin v-if="!userinfo.id"></selectlogin>
     <div v-else>
       <metop></metop>
       <meorder></meorder>

@@ -1,10 +1,10 @@
 <template>
   <div class="me-top">
-    <div class="top-userinfo">
+    <router-link to="/detail" class="top-userinfo" tag="div">
       <img src="https://pinduoduoimg.yangkeduo.com/avatar/default/9.png?imageMogr2/sharpen/50/strip%7CimageView2/2/w/1300/q/80/format/webp">
-      <h3>{{userinfo.phone | phoneFormat}}</h3>
-      <i class="icon-user_01"></i>
-    </div>
+      <h3 v-if="userinfo">{{userinfo.phone | phoneFormat}}</h3>
+      <i class="icon_user_01"></i>
+    </router-link>
   </div>
 </template>
 
@@ -18,8 +18,8 @@ export default {
   },
   filters:{
     phoneFormat(phone){
+      console.log(phone);
       let str = [...phone];
-      console.log(str);
       let phoneStr = '';
       str.forEach((value, index)=>{
         if(index>2 && index<7) phoneStr += '*';
@@ -38,7 +38,7 @@ export default {
   .top-userinfo
     display flex
     align-items center
-    padding 20px 40px
+    padding 20px 25px
     img
       height 60px
       border-radius 50%

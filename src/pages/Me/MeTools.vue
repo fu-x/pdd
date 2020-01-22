@@ -5,49 +5,49 @@
     </div>
     <div class="tools-content">
       <div class="tools-item">
-        <i class="icon-user_07"></i>
+        <i class="icon_user_07"></i>
         <span>收藏夹</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_08"></i>
+        <i class="icon_user_08"></i>
         <span>红包卡券</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_09"></i>
+        <i class="icon_user_09"></i>
         <span>关注店铺</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_10"></i>
+        <i class="icon_user_10"></i>
         <span>我的钱包</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_11"></i>
+        <i class="icon_user_11"></i>
         <span>客服中心</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_12"></i>
+        <i class="icon_user_12"></i>
         <span>会员中心</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_13"></i>
+        <i class="icon_user_13"></i>
         <span>我的评价</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_14"></i>
+        <i class="icon_user_14"></i>
         <span>红包签到</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_15"></i>
+        <i class="icon_user_15"></i>
         <span>收货地址</span>
       </div>
       <div class="tools-item">
-        <i class="icon-user_16"></i>
+        <i class="icon_user_16"></i>
         <span>新人红包</span>
       </div>
-      <div class="tools-item">
-        <i class="icon-user_17"></i>
+      <router-link class="tools-item" to="/setting" tag="div">
+        <i class="icon_user_17"></i>
         <span>设置</span>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

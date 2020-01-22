@@ -4,7 +4,8 @@ import {
   getHomeShopList,
   getSearchGoods,
   getRecommendGoods,
-  getIsLogin
+  getIsLogin,
+  getLogout
 } from '../api/index'
 
 import {
@@ -14,7 +15,8 @@ import {
   SEARCH_GOODS,
   RECOMMEND_GOODS,
   USER_INFO,
-  IS_LOGIN
+  IS_LOGIN,
+  LOGOUT
 } from './mutation-type'
 
 export default {
@@ -49,5 +51,10 @@ export default {
     console.log(result);
     if(result.status === 200)
       commit(IS_LOGIN, {userInfo: result.message});
+  },
+  async reqLogout({commit}){
+    const result = await getLogout();
+    if(result.status === 200)
+      commit(LOGOUT);
   }
 }

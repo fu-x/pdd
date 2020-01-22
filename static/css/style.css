@@ -1,18 +1,18 @@
 @font-face {
-  font-family: 'user-icon';
-  src:  url('../fonts/user-icon.eot?le0gp1');
-  src:  url('../fonts/user-icon.eot?le0gp1#iefix') format('embedded-opentype'),
-    url('../fonts/user-icon.ttf?le0gp1') format('truetype'),
-    url('../fonts/user-icon.woff?le0gp1') format('woff'),
-    url('../fonts/user-icon.svg?le0gp1#user-icon') format('svg');
+  font-family: 'icon';
+  src:  url('../fonts/icon.eot?v4mhti');
+  src:  url('../fonts/icon.eot?v4mhti#iefix') format('embedded-opentype'),
+    url('../fonts/icon.ttf?v4mhti') format('truetype'),
+    url('../fonts/icon.woff?v4mhti') format('woff'),
+    url('../fonts/icon.svg?v4mhti#icon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon_"], [class*=" icon_"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'user-icon' !important;
+  font-family: 'icon' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -25,88 +25,138 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-user_01:before {
+.icon_setting_01:before {
   content: "\e900";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_02:before {
+  content: "\e901";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_03:before {
+  content: "\e902";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_04:before {
+  content: "\e903";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_05:before {
+  content: "\e904";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_06:before {
+  content: "\e905";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_07:before {
+  content: "\e906";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_08:before {
+  content: "\e907";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_09:before {
+  content: "\e908";
+  color: #bfbfbf;
+  font-size: 22px;
+}
+.icon_setting_10:before {
+  content: "\e909";
+  color: #bfbfbf;
+  font-size: 14px;
+}
+.icon_user_01:before {
+  content: "\e90a";
   color: #5188ed;
   font-size: 22px;
 }
-.icon-user_02:before {
-  content: "\e901";
-  color: #bfbfbf;
-  font-size: 32px;
-}
-.icon-user_03:before {
-  content: "\e902";
-  color: #bfbfbf;
-  font-size: 32px;
-}
-.icon-user_04:before {
-  content: "\e903";
-  color: #bfbfbf;
-  font-size: 32px;
-}
-.icon-user_05:before {
-  content: "\e904";
-  color: #bfbfbf;
-  font-size: 32px;
-}
-.icon-user_06:before {
-  content: "\e905";
-  color: #bfbfbf;
-  font-size: 32px;
-}
-.icon-user_07:before {
-  content: "\e906";
-  color: #e0620d;
-  font-size: 32px;
-}
-.icon-user_08:before {
-  content: "\e907";
-  color: #e0620d;
-  font-size: 32px;
-}
-.icon-user_09:before {
-  content: "\e908";
-  color: #e0620d;
-  font-size: 32px;
-}
-.icon-user_10:before {
-  content: "\e909";
-  color: #e0620d;
-  font-size: 32px;
-}
-.icon-user_11:before {
-  content: "\e90a";
-  color: #e0620d;
-  font-size: 32px;
-}
-.icon-user_12:before {
+.icon_user_02:before {
   content: "\e90b";
-  color: #e0620d;
+  color: #bfbfbf;
   font-size: 32px;
 }
-.icon-user_13:before {
+.icon_user_03:before {
   content: "\e90c";
-  color: #e0620d;
+  color: #bfbfbf;
   font-size: 32px;
 }
-.icon-user_14:before {
+.icon_user_04:before {
   content: "\e90d";
-  color: #e0620d;
+  color: #bfbfbf;
   font-size: 32px;
 }
-.icon-user_15:before {
+.icon_user_05:before {
   content: "\e90e";
-  color: #e0620d;
+  color: #bfbfbf;
   font-size: 32px;
 }
-.icon-user_16:before {
+.icon_user_06:before {
   content: "\e90f";
+  color: #bfbfbf;
+  font-size: 32px;
+}
+.icon_user_07:before {
+  content: "\e910";
   color: #e0620d;
   font-size: 32px;
 }
-.icon-user_17:before {
-  content: "\e910";
+.icon_user_08:before {
+  content: "\e911";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_09:before {
+  content: "\e912";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_10:before {
+  content: "\e913";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_11:before {
+  content: "\e914";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_12:before {
+  content: "\e915";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_13:before {
+  content: "\e916";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_14:before {
+  content: "\e917";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_15:before {
+  content: "\e918";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_16:before {
+  content: "\e919";
+  color: #e0620d;
+  font-size: 32px;
+}
+.icon_user_17:before {
+  content: "\e91a";
   color: #e0620d;
   font-size: 32px;
 }

@@ -12,7 +12,7 @@ export default {
   components:{
     tabbar
   },
-  mounted(){
+  created(){
     this.$store.dispatch('reqIsLogin');
   }
 }

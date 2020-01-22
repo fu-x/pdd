@@ -5,7 +5,8 @@ import {
   SEARCH_GOODS,
   RECOMMEND_GOODS,
   USER_INFO,
-  IS_LOGIN
+  IS_LOGIN,
+  LOGOUT
 } from './mutation-type'
 
 
@@ -29,6 +30,10 @@ export default {
     state.userinfo = userInfo;
   },
   [IS_LOGIN](state, {userInfo}){
+    console.log(userInfo);
     state.userinfo = userInfo;
+  },
+  [LOGOUT](state){
+    state.userinfo = {};
   }
 }

@@ -6,23 +6,23 @@
     </div>
     <div class="order-content">
       <div class="order-item">
-        <i class="icon-user_02"></i>
+        <i class="icon_user_02"></i>
         <span>待付款</span>
       </div>
       <div class="order-item">
-        <i class="icon-user_03"></i>
+        <i class="icon_user_03"></i>
         <span>待发货</span>
       </div>
       <div class="order-item">
-        <i class="icon-user_04"></i>
+        <i class="icon_user_04"></i>
         <span>待收货</span>
       </div>
       <div class="order-item">
-        <i class="icon-user_05"></i>
+        <i class="icon_user_05"></i>
         <span>待评价</span>
       </div>
       <div class="order-item">
-        <i class="icon-user_06"></i>
+        <i class="icon_user_06"></i>
         <span>退款/售后</span>
       </div>
     </div>

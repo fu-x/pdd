@@ -21,3 +21,7 @@ export const verifyCodeLogin = (phone, code)=> ajax(BASE_URL + '/api/logincode',
 export const pwdLogin = (username, password, captcha)=> ajax(BASE_URL + '/api/loginpwd', {username, password, captcha}, 'POST');
 // 检验是否已经登录
 export const getIsLogin = ()=> ajax(BASE_URL + '/api/islogin');
+// 退出登陆
+export const getLogout = ()=> ajax(BASE_URL + '/api/logout');
+// 修改个人信息
+export const getAlterInfo = (id, name, sex, address, birthday, signature)=> ajax(BASE_URL + '/api/alterinfo', {id, name, sex, address, birthday, signature}, 'POST');
