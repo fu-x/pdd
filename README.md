@@ -65,6 +65,8 @@ npm run build --report
    - chat
    - me
    - login
+   - mesetting
+   - medetail
 2. 引入路由
    * 安装`vue-router`
    * `main.js`中使用 
@@ -98,6 +100,7 @@ npm run build --report
 1. 完成页面布局
 2. 实现动态数据渲染
 3. 分页请求数据，实现上拉加载更多
+4. 实现点击添加商品到购物车功能
    
 ## search搜索页面
 1. 完成搜索框以及搜索页面搭建
