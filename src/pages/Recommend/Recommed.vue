@@ -1,7 +1,14 @@
 <template>
   <div class="recommend-container" v-if="recommendgoods.length > 0">
-    <ul class="recommend">
-      <shoplist v-for="(item, index) in recommendgoods" :key="index" :item="item" flag="true"/>
+    <selectlogin v-if="!isLogin"></selectlogin>
+    <ul class="recommend" v-else>
+      <shoplist 
+      v-for="(item, index) in recommendgoods" 
+      :key="index" 
+      :item="item" 
+      flag="true"
+      :addCart="addCart"
+      />
     </ul>
   </div>
 </template>
@@ -10,16 +17,19 @@
 import {
   mapState
 } from 'vuex'
-import shoplist from '../../components/ShopList/ShopList'
+import shoplist from '../../components/ShopList'
 import BScroll from 'better-scroll';
-import { Indicator } from 'mint-ui';
+import selectlogin from '../Login/SelectLogin'
+import { Indicator, Toast } from 'mint-ui';
+import { getAddCart } from '../../api/index'
 
 export default {
   name:'Recommend',
   data(){
     return{
       page: 1,
-      count: 20
+      count: 20,
+      isLogin: true
     }
   },
   computed:{
@@ -32,7 +42,8 @@ export default {
     }});
   },
   components:{
-    shoplist
+    shoplist,
+    selectlogin
   },
   watch:{
     recommendgoods(){
@@ -78,6 +89,16 @@ export default {
       this.listScroll.on('scrollEnd', ()=>{
         this.listScroll.refresh();
       })
+    },
+    // 添加购物车
+    async addCart(isLogin, item){
+      console.log(isLogin, item);
+      this.isLogin = isLogin;
+      if(isLogin === true){
+        let result = await getAddCart(item.goods_id, item.goods_name, item.hd_thumb_url, item.price);
+        console.log(result);
+        Toast(result.message);
+      }
     }
   }
 }

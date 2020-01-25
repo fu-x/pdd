@@ -44,7 +44,7 @@
         <button class="submit-btn" @click.prevent="login()">登录</button>
       </form>
     </div>
-    <button class="back-btn" @click="backHome()">返回</button>
+    <button class="back-btn" @click="$router.back()">返回</button>
   </div>
 </template>
 
@@ -153,10 +153,6 @@ export default {
         this.syncUserInfo(this.result.message);
         this.$router.back();
       }
-    },
-    // 返回首页
-    backHome(){
-      this.$router.push('/')
     }
   },
   computed:{

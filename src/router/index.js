@@ -2,14 +2,23 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // 一级路由
-import home from '../pages/Home/Home.vue';
-import search from '../pages/Search/Search.vue';
-import recommend from '../pages/Recommend/Recommed.vue';
-import cart from '../pages/cart/cart.vue';
-import me from '../pages/Me/Me.vue';
-import login from '../pages/Login/Login.vue'
-import mesetting from '../pages/Me/MeSetting.vue'
-import medetail from '../pages/Me/MeDetail.vue';
+// import home from '../pages/Home/Home.vue';
+// import search from '../pages/Search/Search.vue';
+// import recommend from '../pages/Recommend/Recommed.vue';
+// import cart from '../pages/cart/cart.vue';
+// import me from '../pages/Me/Me.vue';
+// import login from '../pages/Login/Login.vue'
+// import mesetting from '../pages/Me/MeSetting.vue'
+// import medetail from '../pages/Me/MeDetail.vue';
+const home = ()=> import('../pages/Home/Home.vue');
+const search = ()=> import('../pages/Search/Search.vue');
+const recommend = ()=> import('../pages/Recommend/Recommed.vue');
+const cart = ()=> import('../pages/cart/cart.vue');
+const me = ()=> import('../pages/Me/Me.vue');
+const login = ()=> import('../pages/Login/Login.vue');
+const mesetting = ()=> import('../pages/Me/MeSetting.vue');
+const medetail = ()=> import('../pages/Me/MeDetail.vue');
+
 // 二级路由
 import hot from '../pages/Home/Children/Hot/hot.vue'
 import man from '../pages/Home/Children/man.vue'

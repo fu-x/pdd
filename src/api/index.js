@@ -25,3 +25,7 @@ export const getIsLogin = ()=> ajax(BASE_URL + '/api/islogin');
 export const getLogout = ()=> ajax(BASE_URL + '/api/logout');
 // 修改个人信息
 export const getAlterInfo = (id, name, sex, address, birthday, signature)=> ajax(BASE_URL + '/api/alterinfo', {id, name, sex, address, birthday, signature}, 'POST');
+// 添加购物车
+export const getAddCart = (goods_id, goods_name, thumb_url, price, number=1)=> ajax(BASE_URL + '/api/addcart', {goods_id, goods_name, thumb_url, price, number}, 'POST');
+// 请求购物车商品
+export const getCart = ()=> ajax(BASE_URL + '/api/cart');

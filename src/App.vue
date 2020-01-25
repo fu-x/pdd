@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <router-view class="contain"></router-view>
+    <keep-alive>
+      <router-view class="contain"></router-view>
+    </keep-alive>
     <tabbar v-if="$route.meta.showBottomTabBar"></tabbar>
   </div>
 </template>
@@ -23,6 +25,7 @@ export default {
     width 100%
     height 100%
     position relative
+    background-color #f5f5f5
     .contain
       flex none
 </style>

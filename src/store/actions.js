@@ -5,7 +5,8 @@ import {
   getSearchGoods,
   getRecommendGoods,
   getIsLogin,
-  getLogout
+  getLogout,
+  getCart
 } from '../api/index'
 
 import {
@@ -16,7 +17,9 @@ import {
   RECOMMEND_GOODS,
   USER_INFO,
   IS_LOGIN,
-  LOGOUT
+  LOGOUT,
+  CART_GOODS,
+  ALERT_GOODS
 } from './mutation-type'
 
 export default {
@@ -56,5 +59,14 @@ export default {
     const result = await getLogout();
     if(result.status === 200)
       commit(LOGOUT);
+  },
+  async reqCartGoods({commit}){
+    const result = await getCart();
+    console.log(result);
+    if(result.status === 200)
+      commit(CART_GOODS, {cartgoods: result.message});
+  },
+  alertGoods({commit}, cartgoods){
+    commit(ALERT_GOODS, {cartgoods: cartgoods});
   }
 }

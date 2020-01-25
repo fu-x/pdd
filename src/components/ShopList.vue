@@ -10,7 +10,7 @@
       <div class="item-bottom">
         <span class="item-price">￥{{item.normal_price/100}}</span>
         <span class="item-sales">{{item.sales_tip}}</span>
-        <button class="item-btn" v-if="flag">添加购物车</button>
+        <button class="item-btn" v-if="flag" @click="addCart(isLogin, item)">添加购物车</button>
         <span class="item-user" v-else>
           <img class="user" v-lazy="user.avatar" v-for="(user, index) in item.bubble" :key="index">
         </span>
@@ -20,9 +20,22 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: "ShopList",
-  props:['item','flag']
+  data(){
+    return{
+      isLogin: false
+    }
+  },
+  props:['item','flag','addCart'],
+  computed:{
+    ...mapState(['userinfo'])
+  },
+  mounted(){
+    if(this.userinfo.id)
+      this.isLogin = true;
+  }
 };
 </script>
 

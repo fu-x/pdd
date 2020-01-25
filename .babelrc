@@ -1,11 +1,11 @@
 {
   "presets": [
-    ["es2015", { "modules": false }]
+    ["es2015", "stage-3"]
   ],
   "plugins": [["component", [
     {
       "libraryName": "mint-ui",
       "style": true
     }
-  ]],"transform-object-rest-spread"]
+  ]],"transform-object-rest-spread", "syntax-dynamic-import"]
 }
