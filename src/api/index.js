@@ -29,3 +29,5 @@ export const getAlterInfo = (id, name, sex, address, birthday, signature)=> ajax
 export const getAddCart = (goods_id, goods_name, thumb_url, price, number=1)=> ajax(BASE_URL + '/api/addcart', {goods_id, goods_name, thumb_url, price, number}, 'POST');
 // 请求购物车商品
 export const getCart = ()=> ajax(BASE_URL + '/api/cart');
+// 修改购物车商品
+export const getAlertCart = (cartgoods)=> ajax(BASE_URL + '/api/alertcart', {cartgoods}, 'POST');

@@ -329,7 +329,7 @@ export default {
         text-align center
         color #fff
     .bottom-pay
-      width 45%
+      width 50%
       height 30px
       display flex
       justify-content space-between
@@ -339,11 +339,14 @@ export default {
         color red
       button
         background-color #FF5500
-        border none 
+        border 1px solid #FF5500 
         height 100%
         width 60px
         border-radius 20px
         color #fff
+      button:nth-child(3)
+        background-color #fff
+        color #FF5500
   .item-selected
     background-color #FF0000
     border 1px solid #FF0000 !important

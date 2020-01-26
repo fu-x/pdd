@@ -30,12 +30,12 @@
             </div>
             <ul class="goods-brands" v-if="goods.tag !==''">
               <li class="brands-item" v-for="(item, index) in goods.category" :key="index">
-                <img :src="item.icon" alt=""> 
+                <img v-lazy="item.icon" alt=""> 
               </li>
             </ul>
             <ul class="shop-list">
               <li class="shop-item" v-for="(item, index) in goods.items" :key="index">
-                <img :src="item.icon" alt="">
+                <img v-lazy="item.icon" alt="">
                 <span>{{item.title}}</span>
               </li>
             </ul>
@@ -117,7 +117,7 @@ export default {
       //将allLis转为数组并且遍历，获取位置
       Array.prototype.slice.call(allLis).forEach((li, index) => {
         if(index === allLis.length - 1){
-          this.$refs.rightList.style.paddingBottom =`${window.innerHeight - li.clientHeight - 100}px`;
+          this.$refs.rightList.style.paddingBottom =`${window.innerHeight - li.clientHeight - 90}px`;
         }
         top += li.clientHeight+11;
         tempArr.push(top);

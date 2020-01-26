@@ -13,7 +13,8 @@
             <span class="goods-price">￥{{item.normal_price/100}}</span>
             <span class="goods-counter">{{item.sales_tip}}</span>
             <span class="goods-user">
-              <img class="user" v-lazy="user.avatar" v-for="(user, index) in item.bubble" :key="index">
+              <img class="user" v-lazy="item.bubble_user1">
+              <img class="user" v-lazy="item.bubble_user2">
             </span>
           </div>
         </div>

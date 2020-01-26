@@ -6,7 +6,8 @@ import {
   getRecommendGoods,
   getIsLogin,
   getLogout,
-  getCart
+  getCart,
+  getAlertCart
 } from '../api/index'
 
 import {
@@ -29,19 +30,17 @@ export default {
   },
   async reqHomeNav({commit}){
     const result = await getHomeNav();
-    let homenav = result.message.item1.concat(result.message.item2);
-    commit(HOME_NAV,{homenav: homenav});
+    commit(HOME_NAV,{homenav: result.message});
   },
   async reqHomeShopList({commit}){
     const result = await getHomeShopList();
-    commit(HOME_SHOPLIST,{homeshoplist: result.message.goods_list});
+    commit(HOME_SHOPLIST,{homeshoplist: result.message});
   },
   async reqSearchGoods({commit}){
     const result = await getSearchGoods();
-    commit(SEARCH_GOODS,{searchgoods: result.message.data});
+    commit(SEARCH_GOODS,{searchgoods: result.message});
   },
   async reqRecommendGoods({commit}, params){
-    console.log(params);
     const result = await getRecommendGoods(params);
     commit(RECOMMEND_GOODS,{recommendgoods: result.message});
     params.callback && params.callback();
@@ -62,11 +61,12 @@ export default {
   },
   async reqCartGoods({commit}){
     const result = await getCart();
-    console.log(result);
     if(result.status === 200)
       commit(CART_GOODS, {cartgoods: result.message});
   },
-  alertGoods({commit}, cartgoods){
+  async alertGoods({commit}, cartgoods){
     commit(ALERT_GOODS, {cartgoods: cartgoods});
+    let result = await getAlertCart(cartgoods);
+    console.log(result);
   }
 }
