@@ -1,7 +1,7 @@
 import ajax from './ajax'
 
 // 基础路径
-const BASE_URL='/api'
+const BASE_URL='/api';
 
 // 请求首页轮播图
 export const getHomeCasual = ()=> ajax(BASE_URL + '/api/homecasual');

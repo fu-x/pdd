@@ -2,6 +2,7 @@
 
 > 本项目是基于Vue.js+express+MySql的全栈项目
 > [后端服务器项目地址](https://github.com/fu-x/pdd-server)
+> [项目演示地址](http://coolxiang.top/pdd)
 ## Build Setup
 
 ``` bash
@@ -138,3 +139,5 @@ npm run build --report
 1. 图片懒加载
 2. 路由懒加载
 3. `keep-alive`组件缓存
+
+## 打包部署至服务器

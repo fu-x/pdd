@@ -179,7 +179,7 @@ export default {
     font-family 'STHupo'
     color #FF0000
     font-size 45px
-    margin 85px 0
+    margin 60px 0
   .login-title
     font-size 16px
     color #666666

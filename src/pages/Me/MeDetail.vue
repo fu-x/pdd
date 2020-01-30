@@ -58,7 +58,7 @@
 
 <script>
 import moment from 'moment'
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 import {Toast} from 'mint-ui'
 import {getAlterInfo} from '../../api/index'
 
@@ -99,7 +99,9 @@ export default {
       let result = await getAlterInfo(this.userinfo.id, this.name, this.sex, this.address, this.birthday, this.signature);
       console.log(result);
       Toast(result.message);
-    }
+      this.reqIsLogin();
+    },
+    ...mapActions(['reqIsLogin'])
   },
   computed:{
     ...mapState(['userinfo'])
