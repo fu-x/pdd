@@ -1,7 +1,9 @@
 # pdd移动端商城项目开发
 
 > 本项目是基于Vue.js+express+MySql的全栈项目
+
 > [后端服务器项目地址](https://github.com/fu-x/pdd-server)
+
 > [项目演示地址](http://coolxiang.top/pdd)
 ## Build Setup
 
