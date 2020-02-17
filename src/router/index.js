@@ -18,6 +18,7 @@ const me = ()=> import('../pages/Me/Me.vue');
 const login = ()=> import('../pages/Login/Login.vue');
 const mesetting = ()=> import('../pages/Me/MeSetting.vue');
 const medetail = ()=> import('../pages/Me/MeDetail.vue');
+const cipher = ()=> import('../pages/Me/MeCipher.vue');
 
 // 二级路由
 import hot from '../pages/Home/Children/Hot/hot.vue'
@@ -29,7 +30,6 @@ import food from '../pages/Home/Children/food.vue'
 import genernal from '../pages/Home/Children/genernal.vue'
 import mbaby from '../pages/Home/Children/mbaby.vue'
 import shirt from '../pages/Home/Children/shirt.vue'
-
 Vue.use(Router);
 
 export default new Router({
@@ -67,7 +67,7 @@ export default new Router({
     }, {
       path: '/me',
       component: me,
-      meta: {showBottomTabBar: true, keepAlive: true}
+      meta: {showBottomTabBar: true}
     }, {
       path: '/login',
       component: login
@@ -77,6 +77,9 @@ export default new Router({
     },{
       path: '/detail',
       component: medetail
+    },{
+      path: '/cipher',
+      component: cipher
     }
   ]
 })

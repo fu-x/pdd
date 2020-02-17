@@ -31,3 +31,5 @@ export const getAddCart = (goods_id, goods_name, thumb_url, price, number=1)=> a
 export const getCart = ()=> ajax(BASE_URL + '/api/cart');
 // 修改购物车商品
 export const getAlertCart = (cartgoods)=> ajax(BASE_URL + '/api/alertcart', {cartgoods}, 'POST');
+// 修改密码
+export const getCipher = (oldCipher, newCipher)=> ajax(BASE_URL + '/api/cipher', {oldCipher, newCipher}, 'POST');

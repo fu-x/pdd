@@ -4,7 +4,7 @@
       <metop></metop>
     </div>
     <div class="setting-top">
-      <commoncell v-for="(cell, index) in topLayout" :key="index" :cellLayout="cell"></commoncell>
+      <commoncell v-for="(cell, index) in topLayout" :key="index" :cellLayout="cell" @click.native="toUrl(index)"></commoncell>
     </div>
     <div class="setting-mid">
       <commoncell v-for="(cell, index) in middleLayout" :key="index" :cellLayout="cell"></commoncell>
@@ -32,9 +32,9 @@ export default {
   data(){
     return{
       topLayout:[
+        {leftTitle: '修改密码', leftIcon: 'icon_setting_03', rightTitle: '', rightIcon: 'icon_setting_10'},
         {leftTitle: '免密支付设置', leftIcon: 'icon_setting_01', rightTitle: '', rightIcon: 'icon_setting_10'},
         {leftTitle: '音效与通知', leftIcon: 'icon_setting_02', rightTitle: '', rightIcon: 'icon_setting_10'},
-        {leftTitle: '账户与安全', leftIcon: 'icon_setting_03', rightTitle: '', rightIcon: 'icon_setting_10'},
         {leftTitle: '通用', leftIcon: 'icon_setting_04', rightTitle: '', rightIcon: 'icon_setting_10'},
         {leftTitle: '隐私', leftIcon: 'icon_setting_05', rightTitle: '', rightIcon: 'icon_setting_10'}
       ],
@@ -61,6 +61,14 @@ export default {
           this.$router.replace('/me')
         }
       });
+    },
+    toUrl(index){ // 跳转至某个页面
+      console.log(111);
+      switch(index){
+        case 0:
+          this.$router.replace('/cipher');
+          break;
+      }
     }
   },
   computed:{
@@ -69,7 +77,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped scoped ref="stylesheet/stylus">
+<style lang="stylus" scoped ref="stylesheet/stylus">
 .me-setting
   width 100%
   height 100%
